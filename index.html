@@ -543,6 +543,396 @@ h1.hh-title em{
   background:linear-gradient(to top,rgba(18,24,12,.95) 0%,rgba(18,24,12,.1) 60%,transparent 100%);
 }
 
+/* ── HOME: EDITORIAL STATEMENT ── */
+.home-editorial{
+  background:var(--w1);
+  padding:12vh 8vw;
+  overflow:hidden;
+}
+.editorial-line{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.4rem,5.5vw,6rem);
+  font-weight:200;line-height:1.05;
+  color:var(--forest);
+  overflow:hidden;
+}
+.editorial-line em{font-style:italic;color:var(--g3);}
+.editorial-line .word{
+  display:inline-block;
+  transform:translateY(110%);
+  transition:transform .9s var(--ease);
+}
+.editorial-line.in .word{transform:translateY(0);}
+.editorial-line .word:nth-child(2){transition-delay:.07s;}
+.editorial-line .word:nth-child(3){transition-delay:.14s;}
+.editorial-line .word:nth-child(4){transition-delay:.21s;}
+.editorial-line .word:nth-child(5){transition-delay:.28s;}
+.editorial-line .word:nth-child(6){transition-delay:.35s;}
+.editorial-sub{
+  margin-top:3rem;
+  display:flex;align-items:center;gap:3rem;
+  border-top:1px solid rgba(168,133,44,.15);
+  padding-top:2.5rem;
+}
+.editorial-sub p{
+  font-size:.88rem;color:var(--mid);
+  line-height:1.9;max-width:400px;
+}
+.editorial-sub-link{
+  display:inline-flex;align-items:center;gap:.9rem;
+  font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--g3);white-space:nowrap;flex-shrink:0;
+  position:relative;padding-bottom:2px;
+}
+.editorial-sub-link::after{
+  content:'';position:absolute;bottom:0;left:0;
+  width:100%;height:1px;background:var(--g3);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .4s var(--ease);
+}
+.editorial-sub-link:hover::after{transform:scaleX(1);}
+.editorial-sub-link svg{width:14px;}
+
+/* ── HOME: FULL PHOTO BAND ── */
+.home-photo-band{
+  position:relative;height:60vh;overflow:hidden;
+  background:#1a2b1a;
+}
+.home-photo-band img{
+  width:100%;height:100%;object-fit:cover;
+  transform:scale(1.05);
+  transition:transform 1.4s var(--ease);
+}
+.home-photo-band.in img{transform:scale(1);}
+.home-photo-band-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to bottom,
+    rgba(0,0,0,.15) 0%,
+    rgba(0,0,0,.08) 50%,
+    rgba(0,0,0,.5) 100%);
+}
+.home-photo-band-caption{
+  position:absolute;bottom:2.5rem;left:8vw;right:8vw;
+  display:flex;justify-content:space-between;align-items:flex-end;
+}
+.home-photo-band-caption h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.8rem,3.5vw,3rem);
+  font-weight:200;color:var(--w1);line-height:1.1;
+}
+.home-photo-band-caption span{
+  font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;
+  color:rgba(248,243,234,.5);text-align:right;line-height:1.8;
+}
+
+/* ── HOME: HORIZONTAL GALLERY ── */
+.home-gallery{
+  background:var(--w2);
+  padding:10vh 0;
+}
+.home-gallery-head{
+  padding:0 8vw 4vh;
+  display:flex;align-items:flex-end;justify-content:space-between;
+}
+.home-gallery-head h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.8rem,3vw,3rem);
+  font-weight:200;color:var(--forest);
+}
+.home-gallery-hint{
+  font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--mid);display:flex;align-items:center;gap:.6rem;
+}
+.home-gallery-hint::after{
+  content:'';display:block;width:24px;height:1px;background:var(--mid);
+}
+.gallery-scroll{
+  display:flex;gap:2px;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+  padding:0 8vw;
+  cursor:grab;
+}
+.gallery-scroll::-webkit-scrollbar{display:none;}
+.gallery-scroll:active{cursor:grabbing;}
+.gallery-card{
+  flex:0 0 clamp(260px,35vw,420px);
+  scroll-snap-align:start;
+  aspect-ratio:2/3;
+  position:relative;overflow:hidden;
+  background:#1c2b1c;
+}
+.gallery-card-bg{
+  position:absolute;inset:0;
+  background-size:cover;background-position:center;
+  transition:transform .7s var(--ease);
+}
+.gallery-card:hover .gallery-card-bg{transform:scale(1.06);}
+.gallery-card-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.75) 0%,rgba(0,0,0,.1) 55%,transparent 100%);
+}
+.gallery-card-info{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:2rem 1.8rem;
+}
+.gallery-card-cat{
+  font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;
+  color:var(--g1);margin-bottom:.6rem;
+}
+.gallery-card-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.5rem;font-weight:300;
+  color:var(--w1);line-height:1.2;
+}
+/* CSS art fills for gallery cards without real photos */
+.gc-bg-1{background:linear-gradient(145deg,#2C3E28,#1C2B1C);}
+.gc-bg-2{background:linear-gradient(145deg,#3A3020,#1E1A0C);}
+.gc-bg-3{background:linear-gradient(145deg,#2A2E1E,#18180F);}
+.gc-bg-4{background:linear-gradient(145deg,#322820,#1A1410);}
+.gc-bg-5{background:linear-gradient(145deg,#1E2D1C,#111A0F);}
+/* Arch decoration inside gallery cards */
+.gallery-card-arch{
+  position:absolute;bottom:0;left:50%;transform:translateX(-50%);
+  width:55%;height:70%;
+  border:1px solid rgba(200,169,64,.15);
+  border-radius:50% 50% 0 0;
+  pointer-events:none;
+}
+
+/* ── HOME: PULL QUOTE ── */
+.home-pullquote{
+  background:var(--forest);
+  padding:16vh 8vw;
+  position:relative;overflow:hidden;
+}
+.home-pullquote::before{
+  content:'"';
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(18rem,35vw,32rem);
+  line-height:.6;
+  color:rgba(200,169,64,.04);
+  position:absolute;top:-2rem;left:-2vw;
+  pointer-events:none;
+}
+.pullquote-text{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.8rem,4vw,4.5rem);
+  font-weight:200;font-style:italic;
+  color:var(--w1);line-height:1.3;
+  max-width:820px;position:relative;z-index:1;
+}
+.pullquote-source{
+  margin-top:3rem;
+  font-size:.68rem;letter-spacing:.25em;text-transform:uppercase;
+  color:var(--g2);display:flex;align-items:center;gap:1.2rem;
+}
+.pullquote-source::before{
+  content:'';display:block;width:32px;height:1px;background:var(--g2);
+}
+
+/* ── HOME: AWARDS STRIP ── */
+.home-awards{
+  background:var(--w3);
+  padding:5vh 8vw;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:2rem;border-top:1px solid rgba(168,133,44,.12);
+  border-bottom:1px solid rgba(168,133,44,.12);
+  flex-wrap:wrap;
+}
+.award-item{
+  display:flex;flex-direction:column;gap:.4rem;
+  align-items:center;text-align:center;
+}
+.award-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.1rem;font-weight:300;color:var(--forest);
+  letter-spacing:.05em;
+}
+.award-label{
+  font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--g3);
+}
+.award-sep{width:1px;height:40px;background:rgba(168,133,44,.2);flex-shrink:0;}
+
+/* ── HOME: STORY SPLIT ── */
+.home-story{
+  background:var(--w1);
+  padding:14vh 8vw;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:8vw;align-items:center;
+}
+.hs-left{}
+.hs-left .vs-label{color:var(--g3);}
+.hs-left .vs-label::before{background:var(--g3);}
+.hs-big-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(6rem,14vw,14rem);
+  font-weight:200;line-height:.9;
+  color:transparent;
+  -webkit-text-stroke:1px rgba(168,133,44,.2);
+  letter-spacing:-.02em;margin:1.5rem 0;
+}
+.hs-num-label{
+  font-size:.68rem;letter-spacing:.25em;text-transform:uppercase;
+  color:var(--mid);
+}
+.hs-right{}
+.hs-right h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.2rem,3.5vw,3.8rem);
+  font-weight:200;color:var(--forest);line-height:1.1;
+  margin-bottom:1.8rem;
+}
+.hs-right h2 em{font-style:italic;color:var(--g3);}
+.hs-right p{
+  font-size:.88rem;color:var(--mid);line-height:2;margin-bottom:1.2rem;
+}
+.hs-cta{
+  margin-top:2.5rem;
+  display:inline-flex;align-items:center;gap:1rem;
+  font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--forest);border-bottom:1px solid rgba(168,133,44,.3);
+  padding-bottom:3px;
+  transition:border-color .3s,gap .3s var(--ease);
+}
+.hs-cta:hover{gap:1.6rem;border-color:var(--g3);}
+.hs-cta svg{width:14px;}
+
+/* ── HOME: ROOMS TEASER ── */
+.home-rooms-teaser{
+  background:var(--w2);padding:14vh 8vw;
+}
+.hrt-head{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  margin-bottom:5vh;gap:2rem;
+}
+.hrt-head h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.2rem,4vw,4rem);
+  font-weight:200;color:var(--forest);
+}
+.hrt-head a{
+  font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--g3);white-space:nowrap;
+  display:flex;align-items:center;gap:.6rem;
+}
+.hrt-head a svg{width:14px;transition:transform .3s var(--ease);}
+.hrt-head a:hover svg{transform:translateX(4px);}
+.hrt-grid{
+  display:grid;grid-template-columns:1.3fr 1fr 1fr;
+  gap:2px;
+}
+.hrt-card{
+  position:relative;overflow:hidden;
+  background:var(--w3);
+}
+.hrt-card-img{
+  aspect-ratio:3/4;
+  background-size:cover;background-position:center;
+  transition:transform .8s var(--ease);
+  position:relative;
+}
+.hrt-card:hover .hrt-card-img{transform:scale(1.04);}
+.hrt-card-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.8) 0%,rgba(0,0,0,.1) 55%,transparent 100%);
+}
+.hrt-card-info{
+  position:absolute;bottom:0;left:0;right:0;padding:2.5rem 2rem;
+  z-index:1;
+}
+.hrt-card-num{
+  font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;
+  color:var(--g1);margin-bottom:.5rem;
+}
+.hrt-card-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.5rem;font-weight:300;color:var(--w1);line-height:1.15;
+}
+
+/* ── HOME: FINAL CTA ── */
+.home-cta-band{
+  position:relative;min-height:55vh;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;background:#1a140c;
+}
+.home-cta-band img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  opacity:.55;transform:scale(1.03);
+  transition:transform 1.2s var(--ease);
+}
+.home-cta-band.in img{transform:scale(1);}
+.home-cta-content{
+  position:relative;z-index:1;
+  text-align:center;padding:4rem 8vw;
+}
+.home-cta-content .vs-label{
+  justify-content:center;color:var(--g1);margin-bottom:2rem;
+}
+.home-cta-content .vs-label::before{background:var(--g1);}
+.home-cta-content h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.8rem,6vw,6.5rem);
+  font-weight:200;color:var(--w1);line-height:1;
+  margin-bottom:3rem;
+}
+.home-cta-content h2 em{font-style:italic;color:var(--g0);}
+.home-cta-btn{
+  display:inline-flex;align-items:center;gap:1.2rem;
+  font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--w1);padding:1.2rem 3rem;
+  border:1px solid rgba(200,169,64,.5);
+  position:relative;overflow:hidden;
+  transition:border-color .4s;
+}
+.home-cta-btn::before{
+  content:'';position:absolute;inset:0;
+  background:var(--g3);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .5s var(--ease);
+}
+.home-cta-btn span,.home-cta-btn svg{position:relative;z-index:1;}
+.home-cta-btn:hover::before{transform:scaleX(1);}
+.home-cta-btn:hover{border-color:var(--g3);}
+.home-cta-btn svg{width:16px;transition:transform .3s var(--ease);}
+.home-cta-btn:hover svg{transform:translateX(5px);}
+
+/* ── HOME: TESTIMONIAL FEATURE ── */
+.home-testi{
+  background:var(--w1);
+  padding:14vh 8vw;
+  display:grid;grid-template-columns:1fr 1.8fr;
+  gap:8vw;align-items:center;
+}
+.ht-left{}
+.ht-rating{
+  font-family:'Cormorant Garamond',serif;
+  font-size:6rem;font-weight:200;
+  color:var(--forest);line-height:1;
+}
+.ht-rating sup{font-size:2rem;color:var(--g3);vertical-align:super;}
+.ht-rating-label{
+  font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--mid);margin-top:.4rem;
+}
+.ht-right{}
+.ht-quote{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.5rem,2.8vw,2.6rem);
+  font-style:italic;font-weight:300;
+  color:var(--forest);line-height:1.45;
+  margin-bottom:2.5rem;
+}
+.ht-who{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--g3);}
+.ht-from{font-size:.7rem;color:var(--mid);margin-top:.3rem;}
+.ht-stars{display:flex;gap:4px;margin-top:1.2rem;}
+.ht-star{
+  width:10px;height:10px;background:var(--g2);
+  clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);
+}
+
 /* ── HOME: MARQUEE ── */
 .marquee-wrap{
   background:var(--forest);padding:1.8rem 0;overflow:hidden;
@@ -1319,6 +1709,42 @@ footer{
   .hn-card{padding:2.5rem 2rem;}
   .hn-val{font-size:3.2rem;}
 
+  /* Editorial */
+  .editorial-sub{flex-direction:column;align-items:flex-start;gap:1.5rem;}
+  .editorial-sub p{max-width:100%;}
+
+  /* Photo band */
+  .home-photo-band{height:45vh;}
+  .home-photo-band-caption{flex-direction:column;align-items:flex-start;gap:.8rem;}
+
+  /* Gallery */
+  .gallery-scroll{padding:0 5vw;gap:6px;}
+  .gallery-card{flex:0 0 72vw;}
+
+  /* Awards */
+  .home-awards{justify-content:center;gap:2rem;}
+  .award-sep{display:none;}
+
+  /* Story split */
+  .home-story{grid-template-columns:1fr;gap:4vh;padding:10vh 5vw;}
+  .hs-big-num{font-size:clamp(5rem,18vw,9rem);}
+
+  /* Rooms teaser */
+  .home-rooms-teaser{padding:10vh 5vw;}
+  .hrt-head{flex-direction:column;align-items:flex-start;gap:1rem;}
+  .hrt-grid{grid-template-columns:1fr;}
+
+  /* Pull quote */
+  .home-pullquote{padding:10vh 5vw;}
+
+  /* Testimonial */
+  .home-testi{grid-template-columns:1fr;gap:3vh;padding:10vh 5vw;}
+  .ht-rating{font-size:4rem;}
+
+  /* CTA band */
+  .home-cta-content h2{font-size:clamp(2.4rem,9vw,4rem);}
+  .home-cta-btn{padding:1rem 2rem;}
+
   /* Villa */
   .va-grid{grid-template-columns:1fr;}
   .va-item{padding:2.5rem 2rem;}
@@ -1517,83 +1943,228 @@ footer{
     </div>
   </section>
 
-  <!-- Intro strip -->
-  <div class="home-intro-strip">
-    <div class="his-left">
-      <div class="his-year">XIII</div>
+  <!-- Awards strip -->
+  <div class="home-awards">
+    <div class="award-item rv">
+      <div class="award-name">Guida Michelin</div>
+      <div class="award-label">Recommended</div>
     </div>
-    <div class="his-center">
-      <div class="his-tag rv">The Estate</div>
-      <p class="rv d1">
-        Nestled in the serene Emilian countryside between Bologna and Modena, Villa La Tartaruga is a meticulously restored historic manor. Original arched ceilings, generous proportions and authentic architectural details from the 13th and 18th centuries blend seamlessly with every modern comfort.
-      </p>
+    <div class="award-sep rv d1"></div>
+    <div class="award-item rv d1">
+      <div class="award-name">Locande d'Italia</div>
+      <div class="award-label">Selected Property</div>
     </div>
-    <div class="his-right">
-      <div class="his-awards rv">
-        <div class="his-award">Guida Michelin</div>
-        <div class="his-award">Locande d'Italia</div>
-        <div class="his-award">8.8 · Booking.com</div>
-      </div>
+    <div class="award-sep rv d2"></div>
+    <div class="award-item rv d2">
+      <div class="award-name">8.8 / 10</div>
+      <div class="award-label">Booking.com · Superb</div>
+    </div>
+    <div class="award-sep rv d3"></div>
+    <div class="award-item rv d3">
+      <div class="award-name">4.6 / 5</div>
+      <div class="award-label">Google Reviews</div>
     </div>
   </div>
 
-  <!-- Feature grid -->
-  <section class="home-feature">
-    <div class="hf-grid">
-      <div class="hf-card rv" data-page="camere" style="cursor:pointer">
-        <div class="hf-card-bg hf-card-bg-1" style="background-image:url('rooms.webp');background-size:cover;background-position:center"></div>
-        <div class="hf-overlay"></div>
-        <div class="hf-arch hf-arch-1"></div>
-        <div class="hf-card-content">
-          <div class="hf-label">Accommodations</div>
-          <h3 class="hf-title">Rooms &amp;<br>Suites</h3>
-          <p class="hf-desc">High ceilings, original plasterwork and every modern comfort — refined retreats in the Emilian tradition.</p>
-          <div class="hf-arrow">
-            Explore rooms
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+  <!-- Editorial statement -->
+  <section class="home-editorial">
+    <div class="editorial-line rv">
+      <span class="word">A&nbsp;</span><span class="word">manor&nbsp;</span><span class="word">born&nbsp;</span><span class="word">in&nbsp;the&nbsp;</span><em class="word">13th&nbsp;century.</em>
+    </div>
+    <div class="editorial-line rv d1" style="padding-left:8vw">
+      <span class="word">Alive&nbsp;</span><span class="word"><em>today.</em></span>
+    </div>
+    <div class="editorial-sub rv d2">
+      <p>Nestled between Bologna and Modena, Villa La Tartaruga blends eight centuries of Emilian history with the warmth of genuine Italian hospitality. Restored with devotion, opened with love.</p>
+      <a class="editorial-sub-link" href="#" data-page="villa">
+        Discover the estate
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Full photo band -->
+  <div class="home-photo-band rv">
+    <picture>
+      <source srcset="hero.webp" type="image/webp">
+      <img src="hero.jpeg" alt="Villa La Tartaruga" loading="lazy">
+    </picture>
+    <div class="home-photo-band-overlay"></div>
+    <div class="home-photo-band-caption">
+      <h3>The estate,<br><em style="font-style:italic;color:var(--g0)">Castelfranco Emilia</em></h3>
+      <span>Via Garzolé 41–43<br>Emilia-Romagna, Italy</span>
+    </div>
+  </div>
+
+  <!-- Story split -->
+  <section class="home-story">
+    <div class="hs-left rv">
+      <div class="vs-label">Est.</div>
+      <div class="hs-big-num">XIII</div>
+      <div class="hs-num-label">Century · Castelfranco Emilia</div>
+    </div>
+    <div class="hs-right">
+      <h2 class="rv d1">Where history<br>becomes <em>comfort</em></h2>
+      <p class="rv d2">Original arched ceilings, terracotta floors and period plasterwork have been preserved and celebrated. Every room is a private world of quiet refinement — high ceilings, personal service and every modern comfort.</p>
+      <p class="rv d3">Managed personally by the owner couple, Villa La Tartaruga does not operate like a hotel. Guests are welcomed as honoured visitors — offered a breakfast prepared from local Emilian producers, and a pace of life that larger properties simply cannot replicate.</p>
+      <a class="hs-cta rv d4" href="#" data-page="villa">
+        La Villa
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Rooms teaser -->
+  <section class="home-rooms-teaser">
+    <div class="hrt-head">
+      <div>
+        <div class="vs-label rv" style="color:var(--g3)">Accommodations</div>
+        <h2 class="rv d1">Camere &amp; Suites</h2>
+      </div>
+      <a href="#" data-page="camere" class="rv d2">
+        All rooms
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+    <div class="hrt-grid">
+      <div class="hrt-card rv" data-page="camere" style="cursor:pointer">
+        <div class="hrt-card-img" style="background-image:url('rooms.webp')">
+          <div class="hrt-card-overlay"></div>
+          <div class="hrt-card-info">
+            <div class="hrt-card-num">01</div>
+            <div class="hrt-card-name">La Suite<br>Principale</div>
           </div>
         </div>
       </div>
-      <div class="hf-card rv d1" data-page="eventi" style="cursor:pointer">
+      <div class="hrt-card rv d1" data-page="camere" style="cursor:pointer">
+        <div class="hrt-card-img gc-bg-2" style="aspect-ratio:3/4">
+          <div class="hrt-card-overlay"></div>
+          <div class="gallery-card-arch"></div>
+          <div class="hrt-card-info">
+            <div class="hrt-card-num">02</div>
+            <div class="hrt-card-name">Camera<br>dei Archi</div>
+          </div>
+        </div>
+      </div>
+      <div class="hrt-card rv d2" data-page="camere" style="cursor:pointer">
+        <div class="hrt-card-img gc-bg-3" style="aspect-ratio:3/4">
+          <div class="hrt-card-overlay"></div>
+          <div class="gallery-card-arch"></div>
+          <div class="hrt-card-info">
+            <div class="hrt-card-num">03</div>
+            <div class="hrt-card-name">Il Giardino<br>Segreto</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pull quote -->
+  <section class="home-pullquote">
+    <p class="pullquote-text rv">
+      "We did not want to create a hotel.<br>We wanted to open our home."
+    </p>
+    <div class="pullquote-source rv d1">The owners, Villa La Tartaruga</div>
+  </section>
+
+  <!-- Horizontal gallery -->
+  <section class="home-gallery">
+    <div class="home-gallery-head">
+      <div>
+        <div class="vs-label rv" style="color:var(--g3)">The Estate</div>
+        <h2 class="rv d1">Life at the Villa</h2>
+      </div>
+      <span class="home-gallery-hint rv d2">Swipe to explore</span>
+    </div>
+    <div class="gallery-scroll" id="galleryScroll">
+      <div class="gallery-card rv">
+        <div class="gallery-card-bg" style="background-image:url('events.webp')"></div>
+        <div class="gallery-card-overlay"></div>
+        <div class="gallery-card-info">
+          <div class="gallery-card-cat">Private Events</div>
+          <div class="gallery-card-title">Weddings &<br>Ceremonies</div>
+        </div>
+      </div>
+      <div class="gallery-card rv d1">
+        <div class="gallery-card-bg gc-bg-2"></div>
+        <div class="gallery-card-overlay"></div>
+        <div class="gallery-card-arch"></div>
+        <div class="gallery-card-info">
+          <div class="gallery-card-cat">Historic Interiors</div>
+          <div class="gallery-card-title">Arched<br>Ceilings</div>
+        </div>
+      </div>
+      <div class="gallery-card rv d2">
+        <div class="gallery-card-bg" style="background-image:url('motorvalley.webp')"></div>
+        <div class="gallery-card-overlay"></div>
+        <div class="gallery-card-info">
+          <div class="gallery-card-cat">Surroundings</div>
+          <div class="gallery-card-title">Motor<br>Valley</div>
+        </div>
+      </div>
+      <div class="gallery-card rv d3">
+        <div class="gallery-card-bg gc-bg-4"></div>
+        <div class="gallery-card-overlay"></div>
+        <div class="gallery-card-arch"></div>
+        <div class="gallery-card-info">
+          <div class="gallery-card-cat">The Garden</div>
+          <div class="gallery-card-title">Private<br>Grounds</div>
+        </div>
+      </div>
+      <div class="gallery-card rv d4">
+        <div class="gallery-card-bg" style="background-image:url('begin.webp')"></div>
+        <div class="gallery-card-overlay"></div>
+        <div class="gallery-card-info">
+          <div class="gallery-card-cat">Accommodation</div>
+          <div class="gallery-card-title">Rest &amp;<br>Refinement</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonial feature -->
+  <section class="home-testi">
+    <div class="ht-left rv">
+      <div class="vs-label" style="color:var(--g3)">Guest Reviews</div>
+      <div class="ht-rating">8.8<sup>/10</sup></div>
+      <div class="ht-rating-label">Booking.com · Superb</div>
+    </div>
+    <div class="ht-right rv d2">
+      <p class="ht-quote">
+        "The owners are extraordinarily welcoming. The silence, the garden, the enormous rooms — we felt like private guests in a Medici villa."
+      </p>
+      <div class="ht-who">Marco &amp; Chiara</div>
+      <div class="ht-from">Milan, Italy</div>
+      <div class="ht-stars">
+        <span class="ht-star"></span><span class="ht-star"></span>
+        <span class="ht-star"></span><span class="ht-star"></span><span class="ht-star"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature grid (events + location) -->
+  <section class="home-feature" style="padding-top:0">
+    <div class="hf-grid">
+      <div class="hf-card rv" data-page="eventi" style="cursor:pointer">
         <div class="hf-card-bg hf-card-bg-2" style="background-image:url('events.webp');background-size:cover;background-position:center"></div>
         <div class="hf-overlay"></div>
         <div class="hf-arch hf-arch-1"></div>
         <div class="hf-card-content">
           <div class="hf-label">Private Gatherings</div>
           <h3 class="hf-title">Events &amp;<br>Ceremonies</h3>
-          <p class="hf-desc">From intimate weddings beneath historic arches to enogastronomic evenings in the Michelin-recognised tradition.</p>
-          <div class="hf-arrow">
-            View events
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </div>
+          <p class="hf-desc">From intimate weddings beneath historic arches to Michelin-recognised enogastronomic evenings.</p>
+          <div class="hf-arrow">View events <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
         </div>
       </div>
-      <div class="hf-card rv d2" data-page="location" style="cursor:pointer">
+      <div class="hf-card rv d1" data-page="location" style="cursor:pointer">
         <div class="hf-card-bg hf-card-bg-3" style="background-image:url('motorvalley.webp');background-size:cover;background-position:center"></div>
         <div class="hf-overlay"></div>
         <div class="hf-arch hf-arch-1"></div>
         <div class="hf-card-content">
           <div class="hf-label">Location</div>
           <h3 class="hf-title">Motor Valley<br>&amp; Beyond</h3>
-          <p class="hf-desc">5 minutes from Lamborghini, 20 km from Bologna Airport — the perfect base for the discerning traveller.</p>
-          <div class="hf-arrow">
-            Explore location
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </div>
-        </div>
-      </div>
-      <div class="hf-card rv d3" data-page="contatti" style="cursor:pointer">
-        <div class="hf-card-bg hf-card-bg-4" style="background-image:url('begin.webp');background-size:cover;background-position:center"></div>
-        <div class="hf-overlay"></div>
-        <div class="hf-arch hf-arch-1"></div>
-        <div class="hf-card-content">
-          <div class="hf-label">Reserve</div>
-          <h3 class="hf-title">Begin Your<br>Stay</h3>
-          <p class="hf-desc">Whether for a night's repose or a grand occasion — we are ready to welcome you into our home.</p>
-          <div class="hf-arrow">
-            Make enquiry
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </div>
+          <p class="hf-desc">5 minutes from Lamborghini, 20 km from Bologna Airport — the ideal base in northern Italy.</p>
+          <div class="hf-arrow">Explore location <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
         </div>
       </div>
     </div>
@@ -1638,6 +2209,22 @@ footer{
     <div class="hn-card rv d3">
       <div class="hn-val" data-target="5" data-dec="0">5<sup>min</sup></div>
       <div class="hn-lbl">From Lamborghini HQ</div>
+    </div>
+  </div>
+
+  <!-- Final CTA band -->
+  <div class="home-cta-band rv">
+    <picture>
+      <source srcset="begin.webp" type="image/webp">
+      <img src="begin.jpg" alt="Begin Your Stay" loading="lazy">
+    </picture>
+    <div class="home-cta-content">
+      <div class="vs-label rv">Reserve</div>
+      <h2 class="rv d1">Begin your<br><em>stay</em></h2>
+      <a class="home-cta-btn rv d2" href="#" data-page="contatti">
+        <span>Make a Reservation</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
     </div>
   </div>
 
@@ -2357,6 +2944,33 @@ if(!isTouch){
     if(arches)arches.style.transform=`translateY(${window.scrollY*.12}px)`;
   },{ passive:true });
 }
+
+// ── Photo band & CTA band scale-in ──
+const bandObs=new IntersectionObserver(entries=>{
+  entries.forEach(en=>{if(en.isIntersecting)en.target.classList.add('in');});
+},{threshold:.2});
+document.querySelectorAll('.home-photo-band,.home-cta-band').forEach(el=>bandObs.observe(el));
+
+// ── Gallery drag scroll (desktop) ──
+const gs=document.getElementById('galleryScroll');
+if(gs&&!isTouch){
+  let isDown=false,startX,scrollL;
+  gs.addEventListener('mousedown',e=>{isDown=true;startX=e.pageX-gs.offsetLeft;scrollL=gs.scrollLeft;});
+  gs.addEventListener('mouseleave',()=>isDown=false);
+  gs.addEventListener('mouseup',()=>isDown=false);
+  gs.addEventListener('mousemove',e=>{
+    if(!isDown)return;e.preventDefault();
+    gs.scrollLeft=scrollL-(e.pageX-gs.offsetLeft-startX)*1.5;
+  });
+}
+
+// ── Editorial word reveal (re-trigger on page switch) ──
+function initEditorial(){
+  document.querySelectorAll('.editorial-line').forEach(line=>{
+    line.classList.remove('in');
+  });
+}
+// Already handled by setupReveal IntersectionObserver via .rv class on editorial-line
 </script>
 </body>
 </html>
